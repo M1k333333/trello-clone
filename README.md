@@ -1,24 +1,19 @@
-# README
+# Trello Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a side project aimed at building a Trello-like application to enhance my Ruby skills. The project focuses on implementing key Trello functionalities, including board management, drag-and-drop task organization, and user authentication.
 
-Things you may want to cover:
+## Features & Roadmap
 
-* Ruby version
+### ✅ Planned Features:
+- [ ] Install and configure Devise for authentication  
+- [ ] Implement full CRUD functionality for Boards  
+- [ ] Integrate JKanban for drag-and-drop interactions  
+- [ ] Generate `List` and `Item` models  
+- [ ] Develop and expose a Lists API  
+- [ ] Render the Board using API data  
+- [ ] Enable user assignment as board members  
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tech Stack
+- **Backend:** Ruby on Rails  
+- **Frontend:** JavaScript (with JKanban)  
+- **Authentication:** Devise
