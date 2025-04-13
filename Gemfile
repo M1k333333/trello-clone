@@ -1,9 +1,10 @@
 source "https://rubygems.org"
 
+gem "activerecord-import"
 gem "bootsnap", require: false
 gem "devise"
 gem "importmap-rails"
-gem "jbuilder"
+gem "jsonapi-serializer"
 gem "kamal", require: false
 gem "propshaft"
 gem "puma", ">= 5.0"
@@ -23,6 +24,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
+  gem "faker"
 end
 
 group :development do

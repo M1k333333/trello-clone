@@ -1,0 +1,93 @@
+<div
+    data-controller="modal"
+    id="modal-wrapper"
+    class="hidden fixed inset-0 z-10 flex items-center justify-center"
+    aria-labelledby="modal-title"
+    role="dialog"
+    aria-modal="true"
+>
+    <div class="hidden" id="show-modal-div" data-action="click->modal#showModal"></div>
+    <div
+        id="modal-backdrop"
+        class="hidden fixed inset-0 bg-gray-500/30 backdrop-blur-sm transition-opacity"
+        data-transition-enter="ease-out duration-380"
+        data-transition-enter-start="opacity-0"
+        data-transition-enter-end="opacity-100"
+        data-transition-leave="ease-in duration-200"
+        data-transition-leave-start="opacity-100"
+        data-transition-leave-end="opacity-0"
+    ></div>
+
+    <div
+        id="modal-panel"
+        class="hidden relative bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        data-transition-enter="ease-out duration-380"
+        data-transition-enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        data-transition-enter-end="opacity-100 translate-y-0 sm-scale-100"
+        data-transition-leave="ease-in duration-200"
+        data-transition-leave-start="opacity-100 translate-y-0 sm-scale-100"
+        data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+    >
+        <!-- Header with colored top bar -->
+        <div class="bg-blue-600 h-2"></div>
+        
+        <!-- Close button in top right -->
+        <div class="absolute top-4 right-3">
+            <button class="rounded-full p-1.5 bg-gray-100 hover:bg-gray-200 transition-colors" data-modal-target="closeButton">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 011.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Card content -->
+        <div class="px-6 pt-6 pb-6">
+            <!-- Title section -->
+            <div class="mb-5">
+                <h3 class="text-lg font-semibold text-gray-900 mb-1">Title</h3>
+                <p class="py-2 px-3 bg-gray-50 rounded-md text-gray-800" id="item-title"></p>
+            </div>
+
+            <!-- Description section -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-1">Description</h3>
+                <p class="py-2 px-3 bg-gray-50 rounded-md text-gray-800 min-h-16" id="item-description"></p>
+            </div>
+
+            <!-- Action buttons with improved styling -->
+            <div class="flex mb-6 space-x-3">
+                <%= link_to "", class: "flex items-center py-2 px-3 rounded-md bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors", id: "item-edit-link" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                    </svg>
+                    Edit
+                <% end %>
+                
+                <%= link_to "", class: "flex items-center py-2 px-3 rounded-md bg-red-50 text-red-600 hover:bg-red-100 transition-colors", id: "item-delete-link", data: { "turbo-method": :delete } do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Delete
+                <% end %>
+                
+                <%= link_to "", class: "flex items-center py-2 px-3 rounded-md bg-purple-50 text-purple-600 hover:bg-purple-100 transition-colors", id: "item-assign-member-link" do %>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                    </svg>
+                    Assign Members
+                <% end %>
+            </div>
+
+            <!-- Members section -->
+            <div class="border-t pt-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    Members Assigned
+                </h3>
+                <ul id="item-members-list" class="space-y-2 max-h-32 overflow-y-auto"></ul>
+            </div>
+        </div>
+    </div>
+</div>

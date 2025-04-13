@@ -1,1 +1,19 @@
-<p>Hello from BoardsCotroller#show</p>
+<div class="mx-auto max-w-full px-24 py-12">
+    <div class="mb-5">
+        <%= link_to "+ Add New Member", new_board_board_user_path(@board), class: "inline-flex items-center rounded-md border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus-ring-offset-2" %>
+    </div>
+
+    <div 
+        data-controller=board
+        class="mx-auto max-w-full"
+        data-api-url=<%= api_board_lists_path(@board) %>
+        data-list-positions-api-url=<%= api_board_list_positions_path(@board) %>
+        data-board-list-url=<%= board_lists_path(@board) %>
+        data-item-positions-api-url=<%= api_item_positions_path %>
+        id="board"
+        style="overflow-x: scroll;"
+    >
+    </div>
+</div>
+
+<%= render "shared/modal" %>

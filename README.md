@@ -5,13 +5,13 @@ This is a side project aimed at building a Trello-like application to enhance my
 ## Features & Roadmap
 
 ### ✅ Planned Features:
-- [ ] Install and configure Devise for authentication  
-- [ ] Implement full CRUD functionality for Boards  
-- [ ] Integrate JKanban for drag-and-drop interactions  
-- [ ] Generate `List` and `Item` models  
-- [ ] Develop and expose a Lists API  
-- [ ] Render the Board using API data  
-- [ ] Enable user assignment as board members  
+- [x] Install and configure Devise for authentication  
+- [x] Implement full CRUD functionality for Boards  
+- [x] Integrate JKanban for drag-and-drop interactions  
+- [x] Generate `List` and `Item` models  
+- [x] Develop and expose a Lists API  
+- [x] Render the Board using API data  
+- [x] Enable user assignment as board members  
 
 ## Tech Stack
 - **Backend:** Ruby on Rails  
